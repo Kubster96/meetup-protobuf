@@ -6,13 +6,7 @@ plugins {
 
 group = 'com.codibly'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -20,12 +14,10 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(':model')
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.amqp:spring-rabbit-test'
-}
-
-test {
-    useJUnitPlatform()
 }
