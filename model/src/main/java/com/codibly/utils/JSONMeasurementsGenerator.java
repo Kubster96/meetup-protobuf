@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class JSONMeasurementsGenerator {
-
     public static final String DEVICE_ID = "deviceId";
     private static final Map<Integer, Supplier<Measurement>> measurementMap;
 
@@ -59,6 +58,7 @@ public class JSONMeasurementsGenerator {
                 .roadNo("roadNo")
                 .currentSpeed(10)
                 .freeFlowSpeed(11)
+                .currentTravelTime(11)
                 .freeFlowTravelTime(13)
                 .build();
     }
