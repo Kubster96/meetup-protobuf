@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.codibly.model";
+option java_outer_classname = "WeatherProto";
+
+message Weather {
+  double temp = 1;
+  int32 pressure = 2;
+  int32 humidity = 3;
+  double windSpeed = 4;
+  WindSpeedUnit windSpeedUnit = 5;
+  int32 windDeg = 6;
+
+  enum WindSpeedUnit {
+    METER_PER_SECOND = 0;
+    KILOMETER_PER_HOUR = 1;
+  }
+}

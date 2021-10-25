@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "Pollution.proto";
+import "Solar.proto";
+import "Traffic.proto";
+import "Weather.proto";
+
+option java_package = "com.codibly.model";
+option java_outer_classname = "MeasurementProto";
+
+message Measurements {
+  repeated Measurement measurements = 1;
+}
+
+message Measurement {
+  google.protobuf.Timestamp timestamp = 1;
+  string device_id = 2;
+
+  oneof measurement {
+    Pollution pollution = 1001;
+    Solar solar = 1002;
+    Traffic traffic = 1003;
+    Weather weather = 1004;
+  }
+}

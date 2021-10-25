@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "com.codibly.model";
+option java_outer_classname = "SolarProto";
+
+message Solar {
+  // Global Horizontal Irradiance
+  int32 ghi = 1;
+  // Diffuse Horizontal Irradiance
+  int32 dhi = 2;
+  //Direct Normal Irradiance
+  int32 dni = 3;
+}

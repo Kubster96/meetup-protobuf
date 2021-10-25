@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "com.codibly.model";
+option java_outer_classname = "PollutionProto";
+
+message Pollution {
+  // Concentration of CO (Carbon monoxide), μg/m3
+  double co = 1;
+  // Concentration of NO (Nitrogen monoxide), μg/m3
+  double no = 2;
+  // Concentration of PM2.5 (Fine particles matter),
+  double pm25 = 3;
+}

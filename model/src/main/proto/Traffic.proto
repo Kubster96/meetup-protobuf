@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "com.codibly.model";
+option java_outer_classname = "TrafficProto";
+
+message Traffic {
+  string roadNo = 1;
+  int32 currentSpeed = 2;
+  int32 freeFlowSpeed = 3;
+  int32 currentTravelTime = 4;
+  int32 freeFlowTravelTime = 5;
+}

@@ -1,4 +1,5 @@
 apply plugin: 'java-library'
+apply plugin: 'com.google.protobuf'
 apply plugin: 'maven-publish'
 
 buildscript {
@@ -6,6 +7,9 @@ buildscript {
 		maven {
 			url "https://plugins.gradle.org/m2/"
 		}
+	}
+	dependencies {
+		classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.15'
 	}
 }
 
@@ -30,6 +34,7 @@ dependencies {
 	implementation 'org.springframework.amqp:spring-amqp:2.3.6'
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0'
+	api 'com.google.protobuf:protobuf-java:3.15.8'
 
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -41,4 +46,18 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs 'build/generated/source/proto/main/java'
+		}
+	}
+}
+
+protobuf {
+	protoc {
+		artifact = "com.google.protobuf:protoc:3.15.8"
+	}
 }
