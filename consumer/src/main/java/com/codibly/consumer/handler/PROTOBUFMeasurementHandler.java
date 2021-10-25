@@ -1,7 +1,7 @@
 package com.codibly.consumer.handler;
 
 import com.codibly.consumer.service.MeasurementService;
-import com.codibly.model.Measurements;
+import com.codibly.model.MeasurementProto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import static com.codibly.consumer.config.RabbitMQProperties.JSON_MEASUREMENT_QUEUE;
+import static com.codibly.consumer.config.RabbitMQProperties.PROTOBUF_MEASUREMENT_QUEUE;
 
 @Component
 @RequiredArgsConstructor
-@RabbitListener(queues = JSON_MEASUREMENT_QUEUE, containerFactory = "jsonRabbitListenerContainerFactory")
-public class JSONMeasurementHandler {
+@RabbitListener(queues = PROTOBUF_MEASUREMENT_QUEUE, containerFactory = "protobufRabbitListenerContainerFactory")
+public class PROTOBUFMeasurementHandler {
     private final MeasurementService measurementService;
 
     @RabbitHandler
-    public void handleMeasurements(List<Measurements> measurementsList) {
-        measurementService.handleJSONMeasurements(measurementsList);
+    public void handleMeasurements(List<MeasurementProto.Measurements> measurementsList) {
+        measurementService.handlePROTOBUFMeasurements(measurementsList);
     }
 }
