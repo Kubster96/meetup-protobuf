@@ -3,3 +3,5 @@ rootProject.name = 'meetup-protobuf'
 include 'model'
 include 'producer'
 include 'consumer'
+include 'benchmark'
+

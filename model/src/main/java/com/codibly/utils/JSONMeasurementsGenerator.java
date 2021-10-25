@@ -85,7 +85,7 @@ public class JSONMeasurementsGenerator {
         return measurementsList;
     }
 
-    private static Measurements generateMeasurementsMessage(int numberOfMeasurements) {
+    public static Measurements generateMeasurementsMessage(int numberOfMeasurements) {
         List<Measurement> measurements = new ArrayList<>();
         for (int j = 0; j < numberOfMeasurements; j++) {
             measurements.add(createMeasurement(j));

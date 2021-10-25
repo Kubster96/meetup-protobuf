@@ -16,13 +16,15 @@ public class MeasurementService {
         List<Measurement> measurements = measurementsList.stream().flatMap(measurementss ->
                 measurementss.getMeasurements().stream()).collect(Collectors.toList());
 
-        log.info("{} measurements processed (JSON)", measurements.size());
+        int size = measurements.size();
+        log.info("{} measurements processed (JSON)", size);
     }
 
     public void handlePROTOBUFMeasurements(List<MeasurementProto.Measurements> measurementsList) {
         List<MeasurementProto.Measurement> measurements = measurementsList.stream().flatMap(measurementss ->
                 measurementss.getMeasurementsList().stream()).collect(Collectors.toList());
 
-        log.info("{} measurements processed (PROTOBUF)", measurements.size());
+        int size = measurements.size();
+        log.info("{} measurements processed (PROTOBUF)", size);
     }
 }

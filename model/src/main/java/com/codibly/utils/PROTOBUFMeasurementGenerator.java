@@ -100,7 +100,7 @@ public class PROTOBUFMeasurementGenerator {
         return measurementsList;
     }
 
-    private static MeasurementProto.Measurements generateMeasurementsMessage(int numberOfMeasurements) {
+    public static MeasurementProto.Measurements generateMeasurementsMessage(int numberOfMeasurements) {
         List<MeasurementProto.Measurement> measurements = new ArrayList<>();
         for (int j = 0; j < numberOfMeasurements; j++) {
             measurements.add(createMeasurement(j));

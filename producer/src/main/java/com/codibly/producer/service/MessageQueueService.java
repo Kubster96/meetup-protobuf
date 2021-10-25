@@ -20,12 +20,20 @@ public class MessageQueueService {
     private final Exchange exchange;
 
     public void sendCityJSONMeasurementsMessages(List<Measurements> measurementsMessages) {
-        measurementsMessages.forEach(measurements -> jsonRabbitTemplate.convertAndSend(exchange.getName(),
-                JSON_MEASUREMENT_ROUTING_KEY, measurements));
+        measurementsMessages.forEach(this::sendCityJSONMeasurementsMessage);
+    }
+
+    public void sendCityJSONMeasurementsMessage(Measurements measurements) {
+        jsonRabbitTemplate.convertAndSend(exchange.getName(),
+                JSON_MEASUREMENT_ROUTING_KEY, measurements);
     }
 
     public void sendCityPROTOBUFMeasurementsMessages(List<MeasurementProto.Measurements> measurementsMessages) {
-        measurementsMessages.forEach(measurements -> protobufRabbitTemplate.convertAndSend(exchange.getName(),
-                PROTOBUF_MEASUREMENT_ROUTING_KEY, measurements));
+        measurementsMessages.forEach(this::sendCityPROTOBUFMeasurementsMessage);
+    }
+
+    public void sendCityPROTOBUFMeasurementsMessage(MeasurementProto.Measurements measurements) {
+        protobufRabbitTemplate.convertAndSend(exchange.getName(),
+                PROTOBUF_MEASUREMENT_ROUTING_KEY, measurements);
     }
 }

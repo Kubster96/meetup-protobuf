@@ -4,3 +4,8 @@ spring:
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USER:guest}
     password: ${RABBITMQ_PASSWORD:guest}
+
+producer:
+  serialization-type: PROTOBUF
+  run-producer-loop: false
+  number-of-measurements: 100
